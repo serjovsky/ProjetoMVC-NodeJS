@@ -1,0 +1,38 @@
+/* public/styles.css */
+
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 20px;
+    font-style: normal;
+  }
+  
+  .character-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative;
+  }
+  
+  .character-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  .character-card img {
+    width: 100%;
+    height: auto;
+  }
+
+  h1 {
+    position: relative;
+    text-align: center;
+  }
+
+  h3 {
+    position: relative;
+    text-align: center;
+  }
+  

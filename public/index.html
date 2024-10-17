@@ -1,0 +1,41 @@
+<!-- views/index.html -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Personagens</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+  <h1>Lista de Personagens</h1>
+  <h3>The Office</h3>
+  <div id="character-container" class="character-container"></div>
+
+  <script>
+    // Traz a requisição da API pro frontend
+    fetch('/api/characters')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('character-container');
+        data.forEach(character => {
+          const card = document.createElement('div');
+          card.classList.add('character-card');
+          card.innerHTML = `
+            <img src="${character.imagem}" alt="${character.nome}" />
+            <h2>${character.nome}</h2>
+            <p>${character.descricao}</p>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(error => console.error('Erro ao carregar personagens:', error));
+  </script>
+</body>
+</html>
